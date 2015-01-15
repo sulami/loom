@@ -28,8 +28,26 @@ div#sidebar h1 {
     margin-top: .5em;
     line-height: 1em;
 }
+div#sidebar input#search {
+    background-color: #212121;
+    border: none;
+    color: rgba(255, 255, 255, 0.87);
+    height: 2em;
+    margin: 1em;
+    padding-left: .5em;
+    padding-right: .5em;
+    transition: .5s;
+    width: calc(300px - 2em);
+}
+div#sidebar input#search:hover {
+    background-color: #424242;
+}
+div#sidebar input#search:focus {
+    background-color: #424242;
+    color: #26A69A;
+}
 div#sidebar div#menu {
-    height: calc(100% - 4em);
+    height: calc(100% - 10em);
     overflow: scroll;
     padding-top: 0;
     padding-bottom: 1.5em;
@@ -93,6 +111,7 @@ div.event:hover {
 <body>
 <div id='sidebar'>
     <h1>DnD 4th Edition</h1>
+    <input type='text' id='search' placeholder='Search' />
     <div id='menu'>
         <h2>Threads</h2>
         <li><a href="">Nevid</a></li>
