@@ -94,7 +94,7 @@ div#events {
     padding: 20px;
     width: calc(100% - 340px);
 }
-div.event {
+div#events div.event {
     color: rgba(0, 0, 0, 0.54);
     float: left;
     margin-bottom: 10px;
@@ -102,9 +102,25 @@ div.event {
     transition-duration: .5s;
     width: 100%;
 }
-div.event:hover {
+div#events div.event:hover {
     color: rgba(0, 0, 0, 0.87);
     cursor: default;
+}
+div#events div.event div.content {
+    float:left;
+    width: calc(100% - 30px);
+}
+div#events div.event div.edit {
+    visibility: hidden;
+    float: right;
+    opacity: 0;
+    text-align: right;
+    transition: .5s;
+    width: 30px;
+}
+div#events div.event:hover div.edit {
+    opacity: 1;
+    visibility: visible;
 }
 </style>
 </head>
@@ -131,12 +147,18 @@ div.event:hover {
 </div>
 <div id='events'>
     <div class='event'>
+    <div class='content'>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam
     lectus.  Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra
     nec lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non
     tortor.  vitae nisi at sem facilisis semper ac in est.
     </div>
+    <div class='edit'>
+        <a href="">X</a>
+    </div>
+    </div>
     <div class='event'>
+    <div class='content'>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam
     lectus.  Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra
     nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam
@@ -152,7 +174,12 @@ div.event:hover {
     ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem
     facilisis semper ac in est.
     </div>
+    <div class='edit'>
+        <a href="">X</a>
+    </div>
+    </div>
     <div class='event'>
+    <div class='content'>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam
     lectus.  Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra
     nec Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut
@@ -164,7 +191,12 @@ div.event:hover {
     et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan
     ultricies. Mauris vitae nisi at sem facilisis semper ac in est.
     </div>
+    <div class='edit'>
+        <a href="">X</a>
+    </div>
+    </div>
     <div class='event'>
+    <div class='content'>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam
     lectus.  Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra
     nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam
@@ -180,7 +212,12 @@ div.event:hover {
     ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem
     facilisis semper ac in est.
     </div>
+    <div class='edit'>
+        <a href="">X</a>
+    </div>
+    </div>
     <div class='event'>
+    <div class='content'>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam
     lectus.  Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra
     nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam
@@ -195,6 +232,10 @@ div.event:hover {
     sociis natoque penatibus et magnis dis parturient montes, nascetur
     ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem
     facilisis semper ac in est.
+    </div>
+    <div class='edit'>
+        <a href="">X</a>
+    </div>
     </div>
 </div>
 </body>
