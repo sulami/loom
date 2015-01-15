@@ -14,6 +14,7 @@ a:hover {
     color: #26A69A;
     transition: .3s;
 }
+*:focus { outline: 0; }
 div#sidebar {
     background-color: #212121;
     color: rgba(255, 255, 255, 0.87);
@@ -106,9 +107,20 @@ div#events div.event:hover {
     color: rgba(0, 0, 0, 0.87);
     cursor: default;
 }
-div#events div.event div.content {
+div#events div.event textarea.content {
+    background-color: inherit;
+    border: none;
+    color: inherit;
     float:left;
+    font-family: 'Ubuntu Light';
+    font-size: 1em;
+    overflow: hidden;
+    padding: 0;
+    resize: none;
     width: calc(100% - 30px);
+}
+div#events div.event textarea.content:focus {
+    color: #26A69A;
 }
 div#events div.event div.edit {
     visibility: hidden;
@@ -147,92 +159,41 @@ div#events div.event:hover div.edit {
 </div>
 <div id='events'>
     <div class='event'>
-    <div class='content'>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam
-    lectus.  Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra
-    nec lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non
-    tortor.  vitae nisi at sem facilisis semper ac in est.
-    </div>
+    <textarea spellcheck='false' class='content'>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.  Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor.  vitae nisi at sem facilisis semper ac in est.
+    </textarea>
     <div class='edit'>
         <a href="">X</a>
     </div>
     </div>
     <div class='event'>
-    <div class='content'>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam
-    lectus.  Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra
-    nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam
-    eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim,
-    ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula
-    ultricies a non tortor.  Lorem ipsum dolor sit amet, consectetur adipiscing
-    elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed,
-    adipiscing id dolor.  Pellentesque auctor nisi id magna consequat sagittis.
-    Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl
-    imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio
-    eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum
-    sociis natoque penatibus et magnis dis parturient montes, nascetur
-    ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem
-    facilisis semper ac in est.
-    </div>
+    <textarea spellcheck='false' class='content'>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.  Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.  Pellentesque auctor nisi id magna consequat sagittis.  Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.
+    </textarea>
     <div class='edit'>
         <a href="">X</a>
     </div>
     </div>
     <div class='event'>
-    <div class='content'>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam
-    lectus.  Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra
-    nec Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut
-    gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
-    Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus
-    enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis
-    libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi
-    quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus
-    et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan
-    ultricies. Mauris vitae nisi at sem facilisis semper ac in est.
-    </div>
+    <textarea spellcheck='false' class='content'>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.  Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.  Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.
+    </textarea>
     <div class='edit'>
         <a href="">X</a>
     </div>
     </div>
     <div class='event'>
-    <div class='content'>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam
-    lectus.  Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra
-    nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam
-    eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim,
-    ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula
-    ultricies a non tortor.  Lorem ipsum dolor sit amet, consectetur adipiscing
-    elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed,
-    adipiscing id dolor.  Pellentesque auctor nisi id magna consequat sagittis.
-    Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl
-    imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio
-    eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum
-    sociis natoque penatibus et magnis dis parturient montes, nascetur
-    ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem
-    facilisis semper ac in est.
-    </div>
+    <textarea spellcheck='false' class='content'>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.  Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.  Pellentesque auctor nisi id magna consequat sagittis.  Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.
+    </textarea>
     <div class='edit'>
         <a href="">X</a>
     </div>
     </div>
     <div class='event'>
-    <div class='content'>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam
-    lectus.  Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra
-    nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam
-    eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim,
-    ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula
-    ultricies a non tortor.  Lorem ipsum dolor sit amet, consectetur adipiscing
-    elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed,
-    adipiscing id dolor.  Pellentesque auctor nisi id magna consequat sagittis.
-    Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl
-    imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio
-    eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum
-    sociis natoque penatibus et magnis dis parturient montes, nascetur
-    ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem
-    facilisis semper ac in est.
-    </div>
+    <textarea spellcheck='false' class='content'>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.  Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.  Pellentesque auctor nisi id magna consequat sagittis.  Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.
+    </textarea>
     <div class='edit'>
         <a href="">X</a>
     </div>
