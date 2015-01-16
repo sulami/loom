@@ -23,11 +23,43 @@ div#top {
     text-align: center;
     width: 100%;
 }
+div#button-container {
+    margin-left: calc(100% / 2 - 25em / 2);
+    width: 25em;
+}
+div.button {
+    border: 1px rgba(255, 255, 255, 0.87) solid;
+    border-radius: .5em;
+    float: left;
+    font-size: 1.2em;
+    margin: 2em;
+    padding: .5em;
+}
+div.button:hover {
+    background-color: rgba(255, 255, 255, 0.87);
+    color: rgba(0, 0, 0, 0.87);
+}
+div.button:hover a {
+    color: inherit;
+}
+div.button#green {
+    border-color: #26a69a;
+    color: #26a69a;
+    float: right;
+}
+div.button#green:hover {
+    background-color: #26a69a;
+    color: rgba(0, 0, 0, 0.87);
+}
 </style>
 </head>
 <body>
 <div id='top'>
 <h1>Managing your Camapaign made easy</h1>
+<div id='button-container'>
+    <div class='button'><a href=''>More Info</a></div>
+    <div class='button' id='green'><a href='draft.html'>Get Started</a></div>
+</div>
 </div>
 </body>
 </html>
