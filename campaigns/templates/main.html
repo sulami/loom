@@ -1,9 +1,55 @@
 {% extends 'skeleton.html' %}
 
+{% load staticfiles %}
+
 {% block head %}
+<link rel='stylesheet' type='text/css' href='{% static 'ingame.css' %}'/>
+<script src='https://code.jquery.com/jquery-1.11.2.min.js'></script>
+<script>
+    $(document).ready(function() {
+        jQuery.each(jQuery('textarea[data-autoresize]'), function() {
+        var offset = this.offsetHeight - this.clientHeight;
+        var resizeTextarea = function(el) {
+            jQuery(el).css('height', 'auto').css('height', el.scrollHeight + offset);
+            };
+            jQuery(this).on('keyup input', function() { resizeTextarea(this); }).removeAttr('data-autoresize');
+        });
+    });
+</script>
 {% endblock %}
 
 {% block content %}
-blub.
+<div id='sidebar'>
+    <h1>DnD 4th Edition</h1>
+    <input type='text' id='search' placeholder='Search' />
+    <div id='menu'>
+        <h2>Threads</h2>
+            <li><a href="">All</a></li>
+            {% for thread in threads %}
+                <li><a href="">{{ thread.name }}</a></li>
+            {% endfor %}
+        <h2>Sessions</h2>
+            <li><a href="">All</a></li>
+            {% for session in sessions %}
+                <li><a href="">{{ session.name }}</a></li>
+            {% endfor %}
+            <li id="selected"><a href="">Session 1</a></li>
+    </div>
+    <div id='footer'>
+        <a href="">Logout</a>
+    </div>
+</div>
+<div id='events'>
+    {% for event in events %}
+        <div class='event'>
+            <textarea data-autoresize spellcheck='false' class='content'>{{ event.content }}</textarea>
+            <div class='edit'>
+                <a href="">X</a>
+            </div>
+        </div>
+    {% empty %}
+        Nothing to see here, add some events.
+    {% endfor %}
+</div>
 {% endblock %}
 
