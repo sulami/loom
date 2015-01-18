@@ -24,16 +24,23 @@
     <input type='text' id='search' placeholder='Search' />
     <div id='menu'>
         <h2>Threads</h2>
-            <li><a href="">All</a></li>
+            <li{% if not selected_thread %}
+                id='selected'
+            {% endif %}><a href="{% url 'campaigns:campaign' campaign.pk %}{% if selected_session %}?session={{ selected_session }}{% endif %}">All</a></li>
             {% for thread in threads %}
-                <li><a href="">{{ thread.name }}</a></li>
+                <li{% if selected_thread == thread.pk %}
+                    id='selected'
+                {% endif %}><a href="{% url 'campaigns:campaign' campaign.pk %}?thread={{ thread.pk }}{% if selected_session %}&session={{ selected_session }}{% endif %}">{{ thread.name }}</a></li>
             {% endfor %}
         <h2>Sessions</h2>
-            <li><a href="">All</a></li>
+            <li {% if not selected_session %}
+                id='selected'
+            {% endif %}><a href="{% url 'campaigns:campaign' campaign.pk %}{% if selected_thread %}?thread={{ selected_thread }}{% endif %}">All</a></li>
             {% for session in sessions %}
-                <li><a href="">Session {{ session.number }}</a></li>
+                <li {% if selected_session == session.pk %}
+                    id='selected'
+                {% endif %}><a href="{% url 'campaigns:campaign' campaign.pk %}?session={{ session.pk }}{% if selected_thread %}&thread={{ selected_thread }}{% endif %}">Session {{ session.number }}</a></li>
             {% endfor %}
-            <li id="selected"><a href="">Session 1</a></li>
     </div>
     <div id='footer'>
         <a href="">Logout</a>
@@ -48,7 +55,7 @@
             </div>
         </div>
     {% empty %}
-        Nothing to see here, add some events.
+        No events match your filtering criteria.
     {% endfor %}
 </div>
 {% endblock %}
