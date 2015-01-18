@@ -2,10 +2,13 @@ from django.shortcuts import render, get_object_or_404
 from campaigns.models import Campaign, Session, Thread, Event
 
 def index(request):
-    return render(request, 'main.html')
+    return render(request, 'index.html')
 
 def campaign(request, cid):
     campaign = Campaign.objects.get(pk=cid)
+    if request.user != campaign.owner:
+        return render(request, 'index.html')
+
     threads = campaign.thread_set.all()
     sessions = campaign.session_set.all()
     events = campaign.event_set.all()

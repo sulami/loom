@@ -1,0 +1,29 @@
+{% extends 'skeleton.html' %}
+
+{% load staticfiles %}
+
+{% block head %}
+<link rel='stylesheet' type='text/css' href='{% static 'outofgame.css' %}'/>
+{% endblock %}
+
+{% block content %}
+<div id='top-bar'>
+    <a href=''>Login</a>
+</div>
+<div id='top'>
+    <h1>Managing your Camapaign made easy</h1>
+    <div id='button-container'>
+        <div class='button'><a href=''>More Info</a></div>
+        <div class='button' id='green'><a href='draft.html'>Get Started</a></div>
+    </div>
+</div>
+<div id='bot'>
+    <span class='info'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.</span>
+    <img class='info' src='http://google.com/images/srpr/logo11w.png' />
+    <span class='info'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.</span>
+    <img class='info' src='http://google.com/images/srpr/logo11w.png' />
+    <span class='info'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.</span>
+    <img class='info' src='http://google.com/images/srpr/logo11w.png' />
+</div>
+{% endblock %}
+
