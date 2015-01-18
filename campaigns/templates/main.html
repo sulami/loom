@@ -20,7 +20,7 @@
 
 {% block content %}
 <div id='sidebar'>
-    <h1>DnD 4th Edition</h1>
+    <h1>{{ campaign.name }}</h1>
     <input type='text' id='search' placeholder='Search' />
     <div id='menu'>
         <h2>Threads</h2>
@@ -31,7 +31,7 @@
         <h2>Sessions</h2>
             <li><a href="">All</a></li>
             {% for session in sessions %}
-                <li><a href="">{{ session.name }}</a></li>
+                <li><a href="">Session {{ session.number }}</a></li>
             {% endfor %}
             <li id="selected"><a href="">Session 1</a></li>
     </div>
