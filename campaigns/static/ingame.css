@@ -9,6 +9,7 @@ a {
 }
 a:hover {
     color: #26A69A;
+    cursor: pointer;
     transition: .3s;
 }
 *:focus { outline: 0; }

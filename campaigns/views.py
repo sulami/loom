@@ -1,4 +1,7 @@
 from django.shortcuts import render, get_object_or_404
+
+from django_ajax.decorators import ajax
+
 from campaigns.models import Campaign, Session, Thread, Event
 
 def index(request):
@@ -31,4 +34,12 @@ def campaign(request, cid):
     context['events'] = events
 
     return render(request, 'main.html', context)
+
+@ajax
+def save_event(request, eid):
+    event = Event.objects.get(pk=eid)
+    content = request.POST.get('content')
+    event.content = content
+    event.save()
+    return content
 

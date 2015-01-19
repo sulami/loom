@@ -5,6 +5,7 @@
 {% block head %}
 <link rel='stylesheet' type='text/css' href='{% static 'ingame.css' %}'/>
 <script src='https://code.jquery.com/jquery-1.11.2.min.js'></script>
+<script type="text/javascript" src="{% static 'django_ajax/js/jquery.ajax.min.js' %}"></script>
 <script>
     $(document).ready(function() {
         jQuery.each(jQuery('textarea[data-autoresize]'), function() {
@@ -15,6 +16,12 @@
             jQuery(this).on('keyup input', function() { resizeTextarea(this); }).removeAttr('data-autoresize');
         });
     });
+</script>
+<script>
+function save_event(id, ev) {
+    ajaxPost('/'+id+'/save/', {'content': $(ev).val() }, function(content) {
+    })
+};
 </script>
 {% endblock %}
 
@@ -49,7 +56,7 @@
 <div id='events'>
     {% for event in events %}
         <div class='event'>
-            <textarea data-autoresize rows='1' spellcheck='false' class='content'>{{ event.content }}</textarea>
+            <textarea data-autoresize rows='1' spellcheck='false' class='content' onblur='save_event({{ event.pk }}, this)'>{{ event.content }}</textarea>
             <div class='edit'>
                 {# TODO Thread selection #}
                 <div class='select'>
@@ -62,7 +69,6 @@
                         {% endfor %}
                     </select>
                 </div>
-                <a href="">save</a>
                 <a id='delete' href="">delete</a>
             </div>
         </div>
