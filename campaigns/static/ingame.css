@@ -111,21 +111,45 @@ div#events div.event textarea.content {
     overflow: hidden;
     padding: 0;
     resize: none;
-    width: calc(100% - 30px);
+    width: 100%;
 }
 div#events div.event textarea.content:focus {
     color: #26A69A;
 }
 div#events div.event div.edit {
     visibility: hidden;
-    float: right;
+    float: left;
+    font-size: 0.9em;
+    margin-top: 0.2em;
     opacity: 0;
-    text-align: right;
     transition: .5s;
-    width: 30px;
+    width: 100%;
 }
 div#events div.event:hover div.edit {
     opacity: 1;
     visibility: visible;
+}
+div#events div.event div.select {
+    float: left;
+    overflow: hidden;
+    width: 86px;
+}
+div#events div.event select {
+    background: inherit;
+    border: none;
+    width: 110px;
+    -webkit-appearance: none;
+}
+div#events div.event select:hover {
+    background-color: #eee;
+}
+div#events div.event select:active {
+    outline: 0;
+}
+div#events div.event div.edit a#delete {
+    float: right;
+}
+div#events div.event div.edit a#delete:hover {
+    color: #F44336;
 }
 

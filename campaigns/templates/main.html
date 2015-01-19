@@ -49,9 +49,21 @@
 <div id='events'>
     {% for event in events %}
         <div class='event'>
-            <textarea data-autoresize spellcheck='false' class='content'>{{ event.content }}</textarea>
+            <textarea data-autoresize rows='1' spellcheck='false' class='content'>{{ event.content }}</textarea>
             <div class='edit'>
-                <a href="">X</a>
+                {# TODO Thread selection #}
+                <div class='select'>
+                    <select id='session'>
+                        {% for session in sessions %}
+                            <option value={{ session.pk }}
+                            {% if session.pk == event.session.pk %}
+                                selected='selected'
+                            {% endif %}>Session {{ session.number }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <a href="">save</a>
+                <a id='delete' href="">delete</a>
             </div>
         </div>
     {% empty %}
