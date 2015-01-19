@@ -35,7 +35,7 @@ div#sidebar input#search {
     padding-left: .5em;
     padding-right: .5em;
     transition: .5s;
-    width: calc(300px - 2em);
+    width: calc(300px - 3em);
 }
 div#sidebar input#search:hover {
     background-color: #424242;
