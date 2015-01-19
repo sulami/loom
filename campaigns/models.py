@@ -27,8 +27,8 @@ class Thread(models.Model):
 class Event(models.Model):
     campaign = models.ForeignKey(Campaign)
     session = models.ForeignKey(Session)
-    threads = models.ManyToManyField(Thread)
-    content = models.TextField()
+    threads = models.ManyToManyField(Thread, blank=True)
+    content = models.TextField(blank=True)
 
     def __str__(self):
         return '{} - "{}..."'.format(self.campaign.__str__(), self.content[:50])
