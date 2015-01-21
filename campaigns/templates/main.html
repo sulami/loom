@@ -5,13 +5,15 @@
 {% block head %}
 <link rel='stylesheet' type='text/css' href='{% static 'ingame.css' %}'/>
 <script src='https://code.jquery.com/jquery-1.11.2.min.js'></script>
-<script type="text/javascript" src="{% static 'django_ajax/js/jquery.ajax.min.js' %}"></script>
+<script type="text/javascript"
+        src="{% static 'django_ajax/js/jquery.ajax.min.js' %}">
+</script>
 <script>
 $(document).ready(function() {
     jQuery.each(jQuery('textarea[data-autoresize]'), function() {
     var offset = this.offsetHeight - this.clientHeight;
     var resizeTextarea = function(el) {
-        jQuery(el).css('height', 'auto').css('height', el.scrollHeight + offset);
+        jQuery(el).css('height', 'auto').css('height', el.scrollHeight+offset);
         };
         resizeTextarea(this);
         jQuery(this).on('keyup input', function() {
