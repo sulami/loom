@@ -29,6 +29,7 @@ class Event(models.Model):
     session = models.ForeignKey(Session)
     threads = models.ManyToManyField(Thread, blank=True)
     content = models.TextField(blank=True)
+    time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return '{} - "{}..."'.format(self.campaign.__str__(), self.content[:50])
