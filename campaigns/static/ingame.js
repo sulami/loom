@@ -3,8 +3,8 @@
  * corrosponding elements to the page.
  */
 function new_event(cid, sid) {
-    ajaxGet('/'+cid+'/'+sid+'/new/', function(content) {
-        $('#events').append("<div class='event'><textarea data-autoresize rows='1' spellcheck='false' class='content' onblur='save_event("+content+", this)'>New Event</textarea><div class='edit'><select id='session'></select><a id='delete' onClick='del_event(this, "+content+")'>delete</a></div></div>");
+    ajaxGet('/new_event/'+cid+'/'+sid+'/', function(content) {
+        $('#events').append(content);
     })
 };
 
@@ -12,7 +12,8 @@ function new_event(cid, sid) {
  * Save content from the textarea to the event object.
  */
 function save_event(id, ev) {
-    ajaxPost('/'+id+'/save/', {'content': $(ev).val() }, function(content) {
+    ajaxPost('/save_event/'+id+'/', {'content': $(ev).val() },
+        function(content) {
     })
 };
 
@@ -21,7 +22,7 @@ function save_event(id, ev) {
  * corrosponding event div.
  */
 function del_event(element, eid) {
-    ajaxGet('/'+eid+'/del/', function(content) {
+    ajaxGet('/del_event/'+eid+'/', function(content) {
         $(element).parent().parent().remove();
     })
 };
