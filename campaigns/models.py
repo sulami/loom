@@ -34,3 +34,12 @@ class Event(models.Model):
     def __str__(self):
         return '{} - "{}..."'.format(self.campaign.__str__(), self.content[:50])
 
+class Note(models.Model):
+    campaign = models.ForeignKey(Campaign)
+    title = models.CharField(max_length=100)
+    content = models.TextField(blank=True)
+    time = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return '{} - {}'.format(self.campaign.__str__(), self.title)
+
