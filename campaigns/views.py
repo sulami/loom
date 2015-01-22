@@ -55,3 +55,8 @@ def new_event(request, cid, sid):
     ev.save()
     return ev.pk
 
+@ajax
+def delete_event(request, eid):
+    event = Event.objects.get(pk=eid)
+    event.delete()
+

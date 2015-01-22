@@ -35,6 +35,13 @@ function new_event(cid, sid) {
     })
 };
 </script>
+<script>
+function del_event(element, eid) {
+    ajaxGet('/'+eid+'/del/', function(content) {
+        $(element).parent().parent().remove();
+    })
+};
+</script>
 {% endblock %}
 
 {% block content %}
@@ -81,7 +88,7 @@ function new_event(cid, sid) {
                         {% endfor %}
                     </select>
                 </div>
-                <a id='delete' href="">delete</a>
+                <a id='delete' onClick='del_event(this, {{ event.pk }})'>delete</a>
             </div>
         </div>
     {% empty %}
