@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 from django_ajax.decorators import ajax
 
@@ -10,7 +10,7 @@ def index(request):
 def campaign(request, cid):
     campaign = Campaign.objects.get(pk=cid)
     if request.user != campaign.owner:
-        return render(request, 'index.html')
+        return redirect('index')
 
     threads = campaign.thread_set.all()
     sessions = campaign.session_set.all()
@@ -65,7 +65,7 @@ def new_event(request, cid, sid):
     else:
         lastevent = c.event_set.order_by('-time').last()
         s = lastevent.session
-    ev = Event(campaign=c, session=s)
+    ev = Event(campaign=c, session=s, content='New Event')
     ev.save()
     return ev.pk
 
