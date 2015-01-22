@@ -67,7 +67,15 @@ def new_event(request, cid, sid):
         s = lastevent.session
     ev = Event(campaign=c, session=s, content='New Event')
     ev.save()
-    return ev.pk
+
+    sessions = c.session_set.all()
+
+    context = {
+        'event': ev,
+        'sessions': sessions,
+    }
+
+    return render(request, 'event.html', context)
 
 @ajax
 def delete_event(request, eid):

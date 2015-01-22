@@ -1,0 +1,16 @@
+<div class='event'>
+    <textarea data-autoresize rows='1' spellcheck='false' class='content'
+    onblur='save_event("+content+", this)'>{{ event.content }}</textarea>
+    <div class='edit'>
+        <select id='session'>
+            {% for session in sessions %}
+                <option value={{ session.pk }}
+                {% if session.pk == event.session.pk %}
+                    selected='selected'
+                {% endif %}>Session {{ session.number }}</option>
+            {% endfor %}
+        </select>
+        <a id='delete' onClick='del_event(this, {{ event.id }})'>delete</a>
+    </div>
+</div>
+
