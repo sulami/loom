@@ -87,7 +87,7 @@ function new_event(cid, sid) {
     {% empty %}
         No events match your filtering criteria.
     {% endfor %}
-    <a onclick='new_event({{ campaign.pk }}, {% if selected_session %}{{ selected_session.pk }}{% else %}0{% endif %})'>+ New event</a>
+    <a onclick='new_event({{ campaign.pk }}, {% if selected_session %}{{ selected_session }}{% else %}0{% endif %})'>+ New event</a>
 </div>
 {% endblock %}
 
