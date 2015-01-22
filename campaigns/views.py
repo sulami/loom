@@ -43,3 +43,15 @@ def save_event(request, eid):
     event.save()
     return content
 
+@ajax
+def new_event(request, cid, sid):
+    c = Campaign.objects.get(pk=cid)
+    if sid != '0':
+        s = Session.objects.get(pk=sid)
+    else:
+        lastevent = c.event_set.order_by('-time').last()
+        s = lastevent.session
+    ev = Event(campaign=c, session=s)
+    ev.save()
+    return ev.pk
+
