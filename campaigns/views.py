@@ -10,7 +10,7 @@ def index(request):
 def campaign(request, cid):
     campaign = Campaign.objects.get(pk=cid)
     if request.user != campaign.owner:
-        return redirect('index')
+        return redirect('/')
 
     threads = campaign.thread_set.all()
     sessions = campaign.session_set.all()
