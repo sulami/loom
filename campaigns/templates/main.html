@@ -8,6 +8,7 @@
 <script type="text/javascript"
         src="{% static 'django_ajax/js/jquery.ajax.min.js' %}">
 </script>
+<script type='text/javascript' src="{% static 'ingame.js' %}"></script>
 <script>
 $(document).ready(function() {
     jQuery.each(jQuery('textarea[data-autoresize]'), function() {
@@ -23,22 +24,9 @@ $(document).ready(function() {
 });
 </script>
 <script>
-function save_event(id, ev) {
-    ajaxPost('/'+id+'/save/', {'content': $(ev).val() }, function(content) {
-    })
-};
-</script>
-<script>
 function new_event(cid, sid) {
     ajaxGet('/'+cid+'/'+sid+'/new/', function(content) {
         alert(content);
-    })
-};
-</script>
-<script>
-function del_event(element, eid) {
-    ajaxGet('/'+eid+'/del/', function(content) {
-        $(element).parent().parent().remove();
     })
 };
 </script>
