@@ -33,7 +33,7 @@ def campaign(request, cid):
         events = events.filter(threads__pk=thread)
     context['events'] = events
 
-    return render(request, 'main.html', context)
+    return render(request, 'campaign.html', context)
 
 @ajax
 def save_event(request, eid):

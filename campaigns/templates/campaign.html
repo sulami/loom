@@ -1,0 +1,29 @@
+{% extends 'ingame.html' %}
+
+{% block main %}
+<div id='events'>
+    {% for event in events %}
+        <div class='event'>
+            <textarea data-autoresize rows='1' spellcheck='false' class='content' onblur='save_event({{ event.pk }}, this)'>{{ event.content }}</textarea>
+            <div class='edit'>
+                {# TODO Thread selection #}
+                <div class='select'>
+                    <select id='session'>
+                        {% for session in sessions %}
+                            <option value={{ session.pk }}
+                            {% if session.pk == event.session.pk %}
+                                selected='selected'
+                            {% endif %}>Session {{ session.number }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <a id='delete' onClick='del_event(this, {{ event.pk }})'>delete</a>
+            </div>
+        </div>
+    {% empty %}
+        No events match your filtering criteria.
+    {% endfor %}
+    <a onclick='new_event({{ campaign.pk }}, {% if selected_session %}{{ selected_session }}{% else %}0{% endif %})'>+ New event</a>
+</div>
+{% endblock %}
+
