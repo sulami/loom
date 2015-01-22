@@ -23,19 +23,6 @@ $(document).ready(function() {
     });
 });
 </script>
-<script>
-function new_event(cid, sid) {
-    ajaxGet('/'+cid+'/'+sid+'/new/', function(content) {
-        var ev = $('#events').add('div');
-        ev.addClass('event');
-        /* var edit = ev.add('div');
-        edit.addClass('edit');
-        var select = edit.add('select');
-        select.attr('id', 'session');
-        edit.add('a').addClass('delete'); */
-    })
-};
-</script>
 {% endblock %}
 
 {% block content %}

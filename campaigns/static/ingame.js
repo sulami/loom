@@ -4,7 +4,7 @@
  */
 function new_event(cid, sid) {
     ajaxGet('/new_event/'+cid+'/'+sid+'/', function(content) {
-        $('#events').append(content);
+        $('#new_event').before(content);
     })
 };
 

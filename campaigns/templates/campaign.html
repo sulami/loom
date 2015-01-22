@@ -23,7 +23,7 @@
     {% empty %}
         No events match your filtering criteria.
     {% endfor %}
-    <a onclick='new_event({{ campaign.pk }}, {% if selected_session %}{{ selected_session }}{% else %}0{% endif %})'>+ New event</a>
+    <a id='new_event' onclick='new_event({{ campaign.pk }}, {% if selected_session %}{{ selected_session }}{% else %}0{% endif %})'>+ New event</a>
 </div>
 {% endblock %}
 
