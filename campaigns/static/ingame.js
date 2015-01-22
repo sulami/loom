@@ -1,4 +1,14 @@
 /*
+ * Send an event creation request to the server and add the
+ * corrosponding elements to the page.
+ */
+function new_event(cid, sid) {
+    ajaxGet('/'+cid+'/'+sid+'/new/', function(content) {
+        $('#events').append("<div class='event'><textarea data-autoresize rows='1' spellcheck='false' class='content' onblur='save_event("+content+", this)'>New Event</textarea><div class='edit'><select id='session'></select><a id='delete' onClick='del_event(this, "+content+")'>delete</a></div></div>");
+    })
+};
+
+/*
  * Save content from the textarea to the event object.
  */
 function save_event(id, ev) {
