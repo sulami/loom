@@ -28,6 +28,13 @@ function save_event(id, ev) {
     })
 };
 </script>
+<script>
+function new_event(cid, sid) {
+    ajaxGet('/'+cid+'/'+sid+'/new/', function(content) {
+        alert(content);
+    })
+};
+</script>
 {% endblock %}
 
 {% block content %}
@@ -80,6 +87,7 @@ function save_event(id, ev) {
     {% empty %}
         No events match your filtering criteria.
     {% endfor %}
+    <a onclick='new_event({{ campaign.pk }}, {% if selected_session %}{{ selected_session.pk }}{% else %}0{% endif %})'>+ New event</a>
 </div>
 {% endblock %}
 
