@@ -74,3 +74,8 @@ def delete_event(request, eid):
     event = Event.objects.get(pk=eid)
     event.delete()
 
+@ajax
+def note(request, nid):
+    note = Note.objects.get(pk=nid)
+    return render(request, 'note.html', {'note': note})
+

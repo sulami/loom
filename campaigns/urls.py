@@ -9,5 +9,6 @@ urlpatterns = patterns('',
     url(r'^(?P<cid>\d+)/(?P<sid>\d+)/new/$', views.new_event, name='new_event'),
     url(r'^(?P<eid>\d+)/del/$', views.delete_event, name='delete_event'),
     url(r'^(?P<cid>\d+)/notes/$', views.notes, name='notes'),
+    url(r'^note/(?P<nid>\d+)/$', views.note, name='note'),
 )
 

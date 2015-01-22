@@ -1,2 +1,14 @@
 {% extends 'ingame.html' %}
 
+{% block main %}
+<div id='notes'>
+    {% for note in notes %}
+        <a class='note' onclick='open_note({{ note.pk }})'>
+            {{ note.title }}
+        </a>
+    {% empty %}
+        No notes are here.
+    {% endfor %}
+</div>
+{% endblock %}
+

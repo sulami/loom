@@ -26,3 +26,20 @@ function del_event(element, eid) {
     })
 };
 
+/*
+ * Query the note content and throw it up on the screen.
+ */
+function open_note(nid) {
+    ajaxGet('/note/'+nid+'/', function(content) {
+        $('#notes').append(content);
+    })
+};
+
+/*
+ * Send the possibly updated note back to the server and close the note
+ * window.
+ */
+function close_note() {
+    $('#open_note').remove();
+};
+

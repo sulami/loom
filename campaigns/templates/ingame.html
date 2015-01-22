@@ -42,6 +42,7 @@ function new_event(cid, sid) {
 <div id='sidebar'>
     <h1>{{ campaign.name }}</h1>
     <input type='text' id='search' placeholder='Search' />
+    <a  class='link' href='/{{ campaign.pk }}/notes/'>Notes</a>
     <div id='menu'>
         <h2>Threads</h2>
             <li{% if not selected_thread %}
