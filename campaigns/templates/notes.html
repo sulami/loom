@@ -3,7 +3,7 @@
 {% block main %}
 <div id='notes'>
     {% for note in notes %}
-        <a class='note' onclick='open_note({{ note.pk }})'>
+        <a class='note' id='{{ note.pk }}' onclick='open_note({{ note.pk }})'>
             {{ note.title }}
         </a>
     {% empty %}

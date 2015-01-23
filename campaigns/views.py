@@ -141,3 +141,14 @@ def save_note(request, nid):
     note.content = content
     note.save()
 
+@ajax
+def delete_note(request, nid):
+    try:
+        note = Note.objects.get(pk=nid)
+    except:
+        return None
+    if request.user != note.campaign.owner:
+        return None
+
+    note.delete()
+

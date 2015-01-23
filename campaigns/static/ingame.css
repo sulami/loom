@@ -189,4 +189,10 @@ div#notes div#open_note textarea:focus, input:focus {
 div#notes div#open_note a {
     line-height: 1.3em;
 }
+div#notes div#open_note a#delete {
+    float: right;
+}
+div#notes div#open_note a#delete:hover {
+    color: #F44336;
+}
 

@@ -47,3 +47,13 @@ function save_note() {
     $('#open_note').remove();
 };
 
+/*
+ * Send a deletion request to the server
+ */
+function del_note() {
+    var id = $('#id').val()
+    ajaxGet('/del_note/'+id+'/');
+    $('#open_note').remove();
+    $('a.note#'+id).remove();
+};
+
