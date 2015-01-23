@@ -69,8 +69,17 @@ def save_event(request, eid):
     if request.user != event.campaign.owner:
         return None
 
+    sid = request.POST.get('session')
+    try:
+        session = Session.objects.get(pk=session)
+    except:
+        return None
+    if session.campaign != event.campaign:
+        return None
+
     content = request.POST.get('content')
     event.content = content
+    event.session = session
     event.save()
 
     return content

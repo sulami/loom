@@ -12,7 +12,12 @@ function new_event(cid, sid) {
  * Save content from the textarea to the event object.
  */
 function save_event(id, ev) {
-    ajaxPost('/save_event/'+id+'/', { 'content': $(ev).val() });
+    ajaxPost('/save_event/'+id+'/',
+             {
+                'content': $(ev).parent().find('textarea.content').val(),
+                'session': $(ev).parent().find('select.session').val(),
+             }
+    );
 };
 
 /*

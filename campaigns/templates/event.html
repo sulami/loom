@@ -2,7 +2,7 @@
     <textarea data-autoresize rows='1' spellcheck='false' class='content'
     onblur='save_event({{ event.pk }}, this)'>{{ event.content }}</textarea>
     <div class='edit'>
-        <select id='session'>
+        <select class='session' onblur='save_event({{ event.pk }}, this)'>
             {% for session in sessions %}
                 <option value={{ session.pk }}
                 {% if session.pk == event.session.pk %}
