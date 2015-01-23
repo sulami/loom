@@ -12,9 +12,7 @@ function new_event(cid, sid) {
  * Save content from the textarea to the event object.
  */
 function save_event(id, ev) {
-    ajaxPost('/save_event/'+id+'/', {'content': $(ev).val() },
-        function(content) {
-    })
+    ajaxPost('/save_event/'+id+'/', { 'content': $(ev).val() });
 };
 
 /*
@@ -22,9 +20,8 @@ function save_event(id, ev) {
  * corrosponding event div.
  */
 function del_event(element, eid) {
-    ajaxGet('/del_event/'+eid+'/', function(content) {
-        $(element).parent().parent().remove();
-    })
+    ajaxGet('/del_event/'+eid+'/');
+    $(element).parent().parent().remove();
 };
 
 /*
@@ -40,7 +37,13 @@ function open_note(nid) {
  * Send the possibly updated note back to the server and close the note
  * window.
  */
-function close_note() {
+function save_note() {
+    ajaxPost('/save_note/'+$('#id').val()+'/',
+             {
+                'title': $('#title').val(),
+                'content': $('#content').val()
+             }
+    );
     $('#open_note').remove();
 };
 

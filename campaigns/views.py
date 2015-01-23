@@ -126,3 +126,18 @@ def note(request, nid):
 
     return render(request, 'note.html', {'note': note})
 
+@ajax
+def save_note(request, nid):
+    try:
+        note = Note.objects.get(pk=nid)
+    except:
+        return None
+    if request.user != note.campaign.owner:
+        return None
+
+    title = request.POST.get('title')
+    content = request.POST.get('content')
+    note.title = title
+    note.content = content
+    note.save()
+

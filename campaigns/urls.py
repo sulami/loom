@@ -11,5 +11,6 @@ urlpatterns = patterns('',
         name='new_event'),
     url(r'^del_event/(?P<eid>\d+)/$', views.delete_event, name='delete_event'),
     url(r'^note/(?P<nid>\d+)/$', views.note, name='note'),
+    url(r'^save_note/(?P<nid>\d+)/$', views.save_note, name='save_note'),
 )
 
