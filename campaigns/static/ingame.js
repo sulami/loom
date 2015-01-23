@@ -54,6 +54,9 @@ function save_note() {
              }
     );
     $('#open_note').remove();
+    setTimeout(function(){
+        location.reload();
+    }, 200);
 };
 
 /*
