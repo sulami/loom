@@ -12,6 +12,7 @@
     {% empty %}
         No notes are here.
     {% endfor %}
+    <a id='new_note' onclick='new_note({{ campaign.pk }})'>+ New note</a>
 </div>
 {% endblock %}
 

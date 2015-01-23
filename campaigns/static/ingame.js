@@ -34,6 +34,15 @@ function open_note(nid) {
 };
 
 /*
+ * Send a note creation request and add the new link
+ */
+function new_note(cid) {
+    ajaxGet('/new_note/'+cid+'/', function(content) {
+        $('#new_note').before(content);
+    })
+};
+
+/*
  * Send the possibly updated note back to the server and close the note
  * window.
  */
