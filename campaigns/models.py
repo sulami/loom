@@ -1,6 +1,8 @@
 from django.db import models
 from django.conf import settings
 
+from ordered_model.models import OrderedModel
+
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 
 class Campaign(models.Model):
@@ -24,21 +26,19 @@ class Thread(models.Model):
     def __str__(self):
         return '{} - {}'.format(self.campaign.__str__(), self.name)
 
-class Event(models.Model):
+class Event(OrderedModel):
     campaign = models.ForeignKey(Campaign)
     session = models.ForeignKey(Session)
     threads = models.ManyToManyField(Thread, blank=True)
     content = models.TextField(blank=True)
-    time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return '{} - "{}..."'.format(self.campaign.__str__(), self.content[:50])
 
-class Note(models.Model):
+class Note(OrderedModel):
     campaign = models.ForeignKey(Campaign)
     title = models.CharField(max_length=100)
     content = models.TextField(blank=True)
-    time = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return '{} - {}'.format(self.campaign.__str__(), self.title)
