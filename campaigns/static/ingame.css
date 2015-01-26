@@ -72,6 +72,9 @@ div#sidebar div#menu li#selected {
 div#sidebar div#menu li#selected a:hover {
     color: inherit;
 }
+div#sidebar a#new_session {
+    font-size: 0.8em;
+}
 div#sidebar div#footer {
     background-color: #121212;
     bottom: 0px;

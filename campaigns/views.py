@@ -165,3 +165,19 @@ def delete_note(request, nid):
 
     note.delete()
 
+@ajax
+def new_session(request, cid):
+    try:
+        campaign = Campaign.objects.get(pk=cid)
+    except:
+        return None
+    if request.user != campaign.owner:
+        return None
+
+    newNum = campaign.session_set.count() + 1
+
+    session = Session(campaign=campaign, number = newNum)
+    session.save()
+
+    return render(request, 'session.html', {'session': session})
+

@@ -1,4 +1,13 @@
 /*
+ * Request a new session number/id from the server
+ */
+function new_session(cid) {
+    ajaxGet('/new_session/'+cid+'/', function(content) {
+        $('#new_session').before(content);
+    })
+};
+
+/*
  * Send an event creation request to the server and add the
  * corrosponding elements to the page.
  */

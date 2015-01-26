@@ -40,6 +40,7 @@ $(document).ready(function() {
                 id='selected'
             {% endif %}><a href="{% url 'campaigns:campaign' campaign.pk %}?session={{ session.pk }}{% if selected_thread %}&thread={{ selected_thread }}{% endif %}">Session {{ session.number }}</a></li>
         {% endfor %}
+        <a class='link' id='new_session' onclick='new_session({{ campaign.pk }})'>+ New Session</a>
     </div>
     <div id='footer'>
         <a href="">Logout</a>
