@@ -21,10 +21,6 @@
                 <a id='delete' onClick='del_event(this, {{ event.pk }})'>delete</a>
             </div>
         </div>
-    {% empty %}
-        No events match your filtering criteria.
-        <br />
-        <br />
     {% endfor %}
     <a id='new_event' onclick='new_event({{ campaign.pk }}, {% if selected_session %}{{ selected_session }}{% else %}0{% endif %})'>+ New event</a>
 </div>
