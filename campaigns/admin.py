@@ -12,7 +12,6 @@ class NoteAdmin(OrderedModelAdmin):
 
 admin.site.register(campaigns.models.Campaign)
 admin.site.register(campaigns.models.Session)
-admin.site.register(campaigns.models.Thread)
 admin.site.register(campaigns.models.Event, EventAdmin)
 admin.site.register(campaigns.models.Note, NoteAdmin)
 

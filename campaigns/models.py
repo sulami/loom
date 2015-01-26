@@ -19,17 +19,9 @@ class Session(models.Model):
     def __str__(self):
         return '{} - Session {}'.format(self.campaign.__str__(), self.number)
 
-class Thread(models.Model):
-    campaign = models.ForeignKey(Campaign)
-    name = models.CharField(max_length=100)
-
-    def __str__(self):
-        return '{} - {}'.format(self.campaign.__str__(), self.name)
-
 class Event(OrderedModel):
     campaign = models.ForeignKey(Campaign)
     session = models.ForeignKey(Session)
-    threads = models.ManyToManyField(Thread, blank=True)
     content = models.TextField(blank=True)
 
     def __str__(self):

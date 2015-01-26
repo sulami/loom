@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 
 from django_ajax.decorators import ajax
 
-from campaigns.models import Campaign, Session, Thread, Event, Note
+from campaigns.models import Campaign, Session, Event, Note
 
 def index(request):
     return render(request, 'index.html')
@@ -15,13 +15,11 @@ def campaign(request, cid):
     if request.user != campaign.owner:
         return redirect('/')
 
-    threads = campaign.thread_set.all()
     sessions = campaign.session_set.all()
     events = campaign.event_set.all()
 
     context = {
         'campaign': campaign,
-        'threads': threads,
         'sessions': sessions,
     }
 
@@ -29,11 +27,6 @@ def campaign(request, cid):
     if session:
         context['selected_session'] = int(session)
         events = events.filter(session__pk=session)
-
-    thread = request.GET.get('thread')
-    if thread:
-        context['selected_thread'] = int(thread)
-        events = events.filter(threads__pk=thread)
     context['events'] = events
 
     return render(request, 'campaign.html', context)
@@ -46,14 +39,12 @@ def notes(request, cid):
     if request.user != campaign.owner:
         return redirect('/')
 
-    threads = campaign.thread_set.all()
     sessions = campaign.session_set.all()
     events = campaign.event_set.all()
     notes = campaign.note_set.all()
 
     context = {
         'campaign': campaign,
-        'threads': threads,
         'sessions': sessions,
         'notes': notes,
     }
