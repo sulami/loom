@@ -31,24 +31,15 @@ $(document).ready(function() {
     <input type='text' id='search' placeholder='Search' />
     <a  class='link' href='/{{ campaign.pk }}/notes/'>Notes</a>
     <div id='menu'>
-        <h2>Threads</h2>
-            <li{% if not selected_thread %}
-                id='selected'
-            {% endif %}><a href="{% url 'campaigns:campaign' campaign.pk %}{% if selected_session %}?session={{ selected_session }}{% endif %}">All</a></li>
-            {% for thread in threads %}
-                <li{% if selected_thread == thread.pk %}
-                    id='selected'
-                {% endif %}><a href="{% url 'campaigns:campaign' campaign.pk %}?thread={{ thread.pk }}{% if selected_session %}&session={{ selected_session }}{% endif %}">{{ thread.name }}</a></li>
-            {% endfor %}
         <h2>Sessions</h2>
-            <li {% if not selected_session %}
+        <li {% if not selected_session %}
+            id='selected'
+        {% endif %}><a href="{% url 'campaigns:campaign' campaign.pk %}{% if selected_thread %}?thread={{ selected_thread }}{% endif %}">All</a></li>
+        {% for session in sessions %}
+            <li {% if selected_session == session.pk %}
                 id='selected'
-            {% endif %}><a href="{% url 'campaigns:campaign' campaign.pk %}{% if selected_thread %}?thread={{ selected_thread }}{% endif %}">All</a></li>
-            {% for session in sessions %}
-                <li {% if selected_session == session.pk %}
-                    id='selected'
-                {% endif %}><a href="{% url 'campaigns:campaign' campaign.pk %}?session={{ session.pk }}{% if selected_thread %}&thread={{ selected_thread }}{% endif %}">Session {{ session.number }}</a></li>
-            {% endfor %}
+            {% endif %}><a href="{% url 'campaigns:campaign' campaign.pk %}?session={{ session.pk }}{% if selected_thread %}&thread={{ selected_thread }}{% endif %}">Session {{ session.number }}</a></li>
+        {% endfor %}
     </div>
     <div id='footer'>
         <a href="">Logout</a>
