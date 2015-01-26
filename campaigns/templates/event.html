@@ -12,7 +12,9 @@
                 {% endfor %}
             </select>
         </div>
-        <a id='delete' onClick='del_event(this, {{ event.id }})'>delete</a>
+        <a id='event_up'>Move up</a>
+        <a id='event_down'>Move down</a>
+        <a id='delete' onClick='del_event(this, {{ event.pk }})'>delete</a>
     </div>
 </div>
 

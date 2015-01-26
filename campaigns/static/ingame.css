@@ -136,6 +136,9 @@ div#events div.event:hover div.edit {
     opacity: 1;
     visibility: visible;
 }
+div#events div.event a {
+    margin-left: 1em;
+}
 div#events div.event div.select {
     float: left;
     overflow: hidden;
