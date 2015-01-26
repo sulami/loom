@@ -29,7 +29,7 @@ def campaign(request, cid):
         events = events.filter(session__pk=session)
     context['events'] = events
 
-    return render(request, 'campaign.html', context)
+    return render(request, 'events.html', context)
 
 def notes(request, cid):
     try:
