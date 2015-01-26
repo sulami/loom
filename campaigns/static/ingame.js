@@ -71,6 +71,6 @@ function del_note() {
     var id = $('#id').val()
     ajaxGet('/del_note/'+id+'/');
     $('#open_note').remove();
-    $('a.note#'+id).remove();
+    $('div.note#'+id).remove();
 };
 

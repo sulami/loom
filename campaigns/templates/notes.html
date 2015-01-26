@@ -3,8 +3,8 @@
 {% block main %}
 <div id='notes'>
     {% for note in notes %}
-        <div class='note'>
-        <a class='note' id='{{ note.pk }}' onclick='open_note({{ note.pk }})'>
+        <div class='note' id='{{ note.pk }}'>
+        <a class='note' onclick='open_note({{ note.pk }})'>
             {{ note.title }}
         </a>
         <span class='preview'>{{ note.content|slice:":50" }}</span>
