@@ -62,7 +62,7 @@ def save_event(request, eid):
 
     sid = request.POST.get('session')
     try:
-        session = Session.objects.get(pk=session)
+        session = Session.objects.get(pk=sid)
     except:
         return None
     if session.campaign != event.campaign:
