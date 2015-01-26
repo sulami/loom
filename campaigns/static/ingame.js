@@ -22,10 +22,10 @@ function new_event(cid, sid) {
  */
 function save_event(id, ev) {
     ajaxPost('/save_event/'+id+'/',
-             {
-                'content': $(ev).parent().find('textarea.content').val(),
-                'session': $(ev).parent().find('select.session').val(),
-             }
+        {
+        'content': $(ev).closest('div.event').find('textarea.content').val(),
+        'session': $(ev).closest('div.event').find('select.session').val(),
+        }
     );
 };
 
