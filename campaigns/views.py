@@ -99,8 +99,7 @@ def new_event(request, cid, sid):
         except:
             return None
     else:
-        lastevent = c.event_set.order_by('-time').last()
-        s = lastevent.session
+        s = c.session_set.order_by('number').last()
     ev = Event(campaign=c, session=s, content='New Event')
     ev.save()
 
