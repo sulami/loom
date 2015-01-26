@@ -15,5 +15,7 @@ urlpatterns = patterns('',
     url(r'^del_note/(?P<nid>\d+)/$', views.delete_note, name='delete_note'),
     url(r'^new_note/(?P<cid>\d+)/$', views.new_note, name='new_note'),
     url(r'^new_session/(?P<cid>\d+)/$', views.new_session, name='new_session'),
+    url(r'^event_up/(?P<eid>\d+)/$', views.event_up, name='event_up'),
+    url(r'^event_down/(?P<eid>\d+)/$', views.event_down, name='event_down'),
 )
 

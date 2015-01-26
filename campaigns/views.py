@@ -27,7 +27,7 @@ def campaign(request, cid):
     if session:
         context['selected_session'] = int(session)
         events = events.filter(session__pk=session)
-    context['events'] = events
+    context['events'] = events.order_by('order')
 
     return render(request, 'events.html', context)
 
@@ -102,6 +102,28 @@ def new_event(request, cid, sid):
     }
 
     return render(request, 'event.html', context)
+
+@ajax
+def event_up(request, eid):
+    try:
+        event = Event.objects.get(pk=eid)
+    except:
+        return None
+    if request.user != event.campaign.owner:
+        return None
+
+    event.up()
+
+@ajax
+def event_down(request, eid):
+    try:
+        event = Event.objects.get(pk=eid)
+    except:
+        return None
+    if request.user != event.campaign.owner:
+        return None
+
+    event.down()
 
 @ajax
 def delete_event(request, eid):

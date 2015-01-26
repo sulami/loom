@@ -39,6 +39,23 @@ function del_event(element, eid) {
 };
 
 /*
+ * Move an event up or down.
+ */
+function event_up(id) {
+    ajaxGet('/event_up/'+id+'/');
+    setTimeout(function(){
+        location.reload();
+    }, 200);
+};
+
+function event_down(id) {
+    ajaxGet('/event_down/'+id+'/');
+    setTimeout(function(){
+        location.reload();
+    }, 200);
+};
+
+/*
  * Query the note content and throw it up on the screen.
  */
 function open_note(nid) {
