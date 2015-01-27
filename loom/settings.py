@@ -38,8 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django_ajax',
     'ordered_model',
-    'crispy_forms',
-    'accounts',
+    'account',
     'campaigns',
 )
 
@@ -51,6 +50,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'account.middleware.LocaleMiddleware',
+    'account.middleware.TimezoneMiddleware',
 )
 
 ROOT_URLCONF = 'loom.urls'
