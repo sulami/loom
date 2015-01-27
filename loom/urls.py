@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
-from campaigns import urls
+from campaigns import urls, views
 
 urlpatterns = patterns('',
     # Examples:
@@ -10,6 +10,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('accounts.urls')),
+    url(r'^tos/', views.index, name='terms_of_service'),
     url(r'', include(urls, namespace='campaigns')),
 )
 
