@@ -1,26 +1,30 @@
 {% extends 'ingame.html' %}
 
+{% block title %}{{ campaign.name }}{% endblock %}
+
 {% block main %}
-<h2>Search</h2>
-
-<form method="get" action=".">
-    <table>
-        {{ form.as_table }}
-        <tr>
-            <td>&nbsp;</td>
-            <td>
-                <input type="submit" value="Search">
-            </td>
-        </tr>
-    </table>
-
+<div id='events'>
     {% if query %}
-        <h3>Results</h3>
-
-        {% for result in page.object_list %}
-            <p>
-                <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
-            </p>
+        {% for event in page.object_list %}
+            <div class='event'>
+                <textarea data-autoresize rows='1' spellcheck='false' class='content' onblur='save_event({{ event.pk }}, this)'>{{ event.content }}</textarea>
+                <div class='edit'>
+                    <div class='select'>
+                        <select class='session'
+                                onblur='save_event({{ event.pk }}, this)'>
+                            {% for session in sessions %}
+                                <option value={{ session.pk }}
+                                {% if session.pk == event.session.pk %}
+                                    selected='selected'
+                                {% endif %}>Session {{ session.number }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <a id='event_up' onClick='event_up({{ event.pk }})'>Move up</a>
+                    <a id='event_down' onClick='event_down({{ event.pk }})'>Move down</a>
+                    <a id='delete' onClick='del_event(this, {{ event.pk }})'>delete</a>
+                </div>
+            </div>
         {% empty %}
             <p>No results found.</p>
         {% endfor %}
@@ -35,6 +39,6 @@
     {% else %}
         {# Show some example queries to run, maybe query syntax, something else? #}
     {% endif %}
-</form>
+</div>
 {% endblock %}
 
