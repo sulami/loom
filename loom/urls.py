@@ -10,6 +10,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^account/', include('account.urls')),
+    url(r'^search/', include('haystack.urls')),
     url(r'', include(urls, namespace='campaigns')),
 )
 
