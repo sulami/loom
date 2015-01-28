@@ -28,7 +28,10 @@ $(document).ready(function() {
 {% block content %}
 <div id='sidebar'>
     <h1>{{ campaign.name }}</h1>
-    <input type='text' id='search' placeholder='Search' />
+    <form method='get' action="{% url 'campaigns:search' campaign.pk %}">
+        <input type='text' name='q' id='search' placeholder='Search' />
+        <input class='hidden' type='submit' value='Search' />
+    </form>
     <div id='menu'>
         <li {% if notes %}id='selected'{% endif %}>
             <a href='/{{ campaign.pk }}/notes/'>Notes</a>

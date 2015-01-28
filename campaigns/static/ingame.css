@@ -48,6 +48,9 @@ div#sidebar input#search:focus {
     background-color: #424242;
     color: #26A69A;
 }
+div#sidebar .hidden {
+    display: none;
+}
 div#sidebar div#menu {
     height: calc(100% - 10em);
     overflow: auto;
