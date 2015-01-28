@@ -1,5 +1,7 @@
 {% extends 'ingame.html' %}
 
+{% block title %}{{ campaign.name }}{% endblock %}
+
 {% block main %}
 <div id='notes'>
     {% for note in notes %}

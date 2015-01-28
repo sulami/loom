@@ -1,5 +1,7 @@
 {% extends 'ingame.html' %}
 
+{% block title %}{{ campaign.name }}{% endblock %}
+
 {% block main %}
 <div id='events'>
     {% for event in events %}
