@@ -29,10 +29,12 @@ $(document).ready(function() {
 <div id='sidebar'>
     <h1>{{ campaign.name }}</h1>
     <input type='text' id='search' placeholder='Search' />
-    <a  class='link' href='/{{ campaign.pk }}/notes/'>Notes</a>
     <div id='menu'>
+        <li {% if notes %}id='selected'{% endif %}>
+            <a href='/{{ campaign.pk }}/notes/'>Notes</a>
+        </li>
         <h2>Sessions</h2>
-        <li {% if not selected_session %}
+        <li {% if not selected_session and not notes %}
             id='selected'
         {% endif %}><a href="{% url 'campaigns:campaign' campaign.pk %}{% if selected_thread %}?thread={{ selected_thread }}{% endif %}">All</a></li>
         {% for session in sessions %}
