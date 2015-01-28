@@ -4,6 +4,7 @@ from campaigns import views
 
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
+    url(r'^(?P<cid>\d+)/search/', views.IngameSearchView(), name='search'),
     url(r'^(?P<cid>\d+)/$', views.campaign, name='campaign'),
     url(r'^(?P<cid>\d+)/notes/$', views.notes, name='notes'),
     url(r'^save_event/(?P<eid>\d+)/$', views.save_event, name='save_event'),

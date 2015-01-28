@@ -1,8 +1,30 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
 from django_ajax.decorators import ajax
+from haystack.views import SearchView
 
 from campaigns.models import Campaign, Session, Event, Note
+
+class IngameSearchView(SearchView):
+    def __call__(self, request, cid):
+        self.cid = cid
+        return super(IngameSearchView, self).__call__(request)
+
+    def extra_context(self):
+        try:
+            campaign = Campaign.objects.get(pk=self.cid)
+        except:
+            return redirect('/')
+        if self.request.user != campaign.owner:
+            return redirect('/')
+        sessions = campaign.session_set.all()
+
+        context = {
+            'campaign': campaign,
+            'sessions': sessions,
+        }
+
+        return context
 
 def index(request):
     return render(request, 'index.html')
