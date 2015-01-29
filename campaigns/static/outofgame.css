@@ -58,15 +58,20 @@ div#bot {
     padding: 2em;
     width: 600px;
 }
-*.info {
+div.info {
+    height: 90px;
     margin-bottom: 2em;
 }
 span.info {
+    color: rgba(0, 0, 0, 0.87);
     float: left;
-    line-height: 1.4em;
+    font-size: 1.1em;
+    line-height: 90px;
     max-width: 420px;
 }
 img.info {
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.54);
+    float: right;
     height: 90px;
     margin-left: 20px;
     width: 160px;
