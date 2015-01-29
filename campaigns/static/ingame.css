@@ -192,7 +192,7 @@ div#notes div#open_note input {
     padding-bottom: 0.5em;
 }
 div#notes div#open_note textarea {
-    height: calc(100% - 3em);
+    height: calc(100% - 4em);
     overflow: auto;
     resize: none;
 }
