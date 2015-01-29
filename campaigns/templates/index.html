@@ -8,13 +8,15 @@
 
 {% block content %}
 <div id='top-bar'>
-    <a href=''>Login</a>
+    <a href='{% url 'account_login' %}'>Login</a>
 </div>
 <div id='top'>
     <h1>Managing your Camapaign made easy</h1>
     <div id='button-container'>
         <a class='button'  href=''>More Info</a>
-        <a class='button' id='green' href=''>Get Started</a>
+        <a class='button' id='green' href='{% url 'account_signup' %}'>
+            Get Started
+        </a>
     </div>
 </div>
 <div id='bot'>

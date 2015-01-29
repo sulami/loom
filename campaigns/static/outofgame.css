@@ -36,6 +36,7 @@ a.button {
     color: inherit;
     float: left;
     font-size: 1.2em;
+    font-weight: bold;
     margin: 2em;
     padding: .5em;
 }
