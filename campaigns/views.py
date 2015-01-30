@@ -26,6 +26,9 @@ class IngameSearchView(SearchView):
 
         return context
 
+def campaign_overview(request):
+    return render(request, 'index.html')
+
 def index(request):
     return render(request, 'index.html')
 
