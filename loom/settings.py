@@ -55,6 +55,10 @@ MIDDLEWARE_CLASSES = (
     'account.middleware.TimezoneMiddleware',
 )
 
+TEMPLATE_CONTEXT_PROCESSORTS = [
+    'account.context_processors.account',
+]
+
 ROOT_URLCONF = 'loom.urls'
 
 WSGI_APPLICATION = 'loom.wsgi.application'
@@ -95,4 +99,7 @@ HAYSTACK_CONNECTIONS = {
         'URL': 'http://127.0.0.1:8983/solr'
     },
 }
+
+ACCOUNT_SIGNUP_REDIRECT_URL = '/account/settings/'
+ACCOUNT_LOGIN_REDIRECT_URL = '/account/settings/'
 
