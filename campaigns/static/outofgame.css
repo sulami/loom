@@ -101,4 +101,8 @@ div.row table {
 div.row table input, select {
     width: 200px;
 }
+div.row li {
+    font-size: 1.2em;
+    list-style: none;
+}
 

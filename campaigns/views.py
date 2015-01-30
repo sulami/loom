@@ -27,7 +27,8 @@ class IngameSearchView(SearchView):
         return context
 
 def campaign_overview(request):
-    return render(request, 'index.html')
+    campaigns = request.user.campaign_set.all()
+    return render(request, 'account/campaigns.html', {'campaigns': campaigns,})
 
 def index(request):
     return render(request, 'index.html')

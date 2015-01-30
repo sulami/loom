@@ -1,0 +1,25 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load url from future %}
+
+{% block content_class %}account account-campaigns{% endblock %}
+
+{% block head_title %}Campaigns{% endblock %}
+
+{% block account %}
+<div class='row'>
+    <h1>Campaigns</h1>
+    {% for campaign in campaigns %}
+        <li>
+            <a href='{% url 'campaigns:campaign' campaign.pk %}'>
+                {{ campaign.name }}
+            </a>
+        </li>
+    {% empty %}
+        You do not own any campaigns.
+    {% endfor %}
+    <br />
+    <a href=''>Add a new campaign</a>
+</div>
+{% endblock %}
