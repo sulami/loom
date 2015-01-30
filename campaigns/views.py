@@ -27,7 +27,11 @@ class IngameSearchView(SearchView):
         return context
 
 def campaign_overview(request):
+    if not request.user.is_authenticated():
+        return redirect('/')
+
     campaigns = request.user.campaign_set.all()
+
     return render(request, 'account/campaigns.html', {'campaigns': campaigns,})
 
 def index(request):
