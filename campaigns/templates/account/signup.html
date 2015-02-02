@@ -19,6 +19,8 @@
                 {% endif %}
                 <button type="submit" class="btn btn-primary">{% trans "Sign up" %}</button>
             </form>
+            <br />
+            <a style="font-size: .8em" href="{% url "account_login" %}" class="btn btn-default">{% trans "Already a user?" %}</a>
         </div>
         <div class="col-md-4">
             {% include "account/_signup_sidebar.html" %}
