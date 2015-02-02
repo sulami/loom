@@ -11,6 +11,8 @@ class IngameSearchView(SearchView):
         return super(IngameSearchView, self).__call__(request)
 
     def extra_context(self):
+        if not request.user.is_authenticated():
+            return redirect('/account/login/')
         try:
             campaign = Campaign.objects.get(pk=self.cid)
         except:
@@ -28,7 +30,7 @@ class IngameSearchView(SearchView):
 
 def campaign_overview(request):
     if not request.user.is_authenticated():
-        return redirect('/')
+        return redirect('/account/login/')
 
     campaigns = request.user.campaign_set.all()
 
@@ -38,6 +40,8 @@ def index(request):
     return render(request, 'index.html')
 
 def campaign(request, cid):
+    if not request.user.is_authenticated():
+        return redirect('/account/login/')
     try:
         campaign = Campaign.objects.get(pk=cid)
     except:
@@ -62,6 +66,8 @@ def campaign(request, cid):
     return render(request, 'events.html', context)
 
 def notes(request, cid):
+    if not request.user.is_authenticated():
+        return redirect('/account/login/')
     try:
         campaign = Campaign.objects.get(pk=cid)
     except:
