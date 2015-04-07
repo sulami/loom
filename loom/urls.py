@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^account/campaigns/', views.campaign_overview,
         name='account_campaigns'),
-    url(r'^account/', include('account.urls')),
+    url(r'^account/', include('registration.backends.default.urls')),
     url(r'', include(urls, namespace='campaigns')),
 )
 

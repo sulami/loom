@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django_ajax',
     'ordered_model',
-    'account',
+    'registration',
     'campaigns',
     'haystack',
 )
@@ -52,13 +52,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'account.middleware.LocaleMiddleware',
-    'account.middleware.TimezoneMiddleware',
 )
-
-TEMPLATE_CONTEXT_PROCESSORTS = [
-    'account.context_processors.account',
-]
 
 ROOT_URLCONF = 'loom.urls'
 
