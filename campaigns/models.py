@@ -31,6 +31,7 @@ class Note(OrderedModel):
     campaign = models.ForeignKey(Campaign)
     title = models.CharField(max_length=100)
     content = models.TextField(blank=True)
+    public = models.BooleanField(default=False)
 
     def __str__(self):
         return '{} - {}'.format(self.campaign.__str__(), self.title)

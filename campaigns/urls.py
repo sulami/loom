@@ -18,5 +18,6 @@ urlpatterns = patterns('',
     url(r'^new_session/(?P<cid>\d+)/$', views.new_session, name='new_session'),
     url(r'^event_up/(?P<eid>\d+)/$', views.event_up, name='event_up'),
     url(r'^event_down/(?P<eid>\d+)/$', views.event_down, name='event_down'),
+    url(r'^pub_note/(?P<nid>\d+)/$', views.public_note, name='public_note'),
 )
 

@@ -239,3 +239,11 @@ def new_session(request, cid):
 
     return render(request, 'session.html', {'session': session})
 
+def public_note(request, nid):
+    note = get_object_or_404(Note, pk=nid)
+
+    if not note.public:
+        return redirect('/')
+
+    return render(request, 'pubnote.html', {'note': note})
+
